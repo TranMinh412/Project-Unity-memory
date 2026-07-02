@@ -24,15 +24,15 @@ trigger: always_on
 **Update Rule:** If you change code that affects the project state, update the relevant .specs file immediately.
 **DATE RULE:** Whenever you edit ANY `.specs` file, you MUST update the `**Last Updated:** [YYYY-MM-DD]` field at the top of the file to the current date. Do NOT skip this.
 
-| Document          | File Path                            | Purpose / Trigger                                                                          |
-| :---------------- | :----------------------------------- | :----------------------------------------------------------------------------------------- |
-| **@STACK**        | `.specs/features/[feature]/STACK.md`            | **[CRITICAL]** Scope, Goals, Tech Stack, Identity.                                         |
-| **@ARCHITECTURE** | `.specs/features/[feature]/ARCHITECTURE.md`     | **[CRITICAL]** Full technical deep dive. **READ FIRST for any technical question.**        |
-| **@ROADMAP**      | `.specs/features/[feature]/ROADMAP.md`          | **[MED]** Milestones and timeline.                                                         |
-| **@STATE**        | `.specs/features/[feature]/STATE.md`            | **[LOG]** Decisions, blockers, risks, and lessons learned.                                 |
-| **@CONVENTIONS**  | `.specs/project/CONVENTIONS.md`                 | **[MED]** Global Workspace coding rules and patterns (Zero GC, Naming).                    |
-| **@FEATURE_SPEC** | `.specs/features/[feature]/spec.md`             | **[HIGH]** Specific architecture, scope, and libraries for a sub-project.                  |
-| **@TASKS**        | `.specs/features/[feature]/tasks.md` | **[HIGH]** Granular feature execution plan (loads automatically inside specific features). |
+| Document          | File Path                                   | Purpose / Trigger                                                                          |
+| :---------------- | :------------------------------------------ | :----------------------------------------------------------------------------------------- |
+| **@STACK**        | `.specs/features/[feature]/STACK.md`        | **[CRITICAL]** Scope, Goals, Tech Stack, Identity.                                         |
+| **@ARCHITECTURE** | `.specs/features/[feature]/ARCHITECTURE.md` | **[CRITICAL]** Full technical deep dive. **READ FIRST for any technical question.**        |
+| **@ROADMAP**      | `.specs/features/[feature]/ROADMAP.md`      | **[MED]** Milestones and timeline.                                                         |
+| **@STATE**        | `.specs/features/[feature]/STATE.md`        | **[LOG]** Decisions, blockers, risks, and lessons learned.                                 |
+| **@CONVENTIONS**  | `.specs/project/CONVENTIONS.md`             | **[MED]** Global Workspace coding rules and patterns (Zero GC, Naming).                    |
+| **@FEATURE_SPEC** | `.specs/features/[feature]/spec.md`         | **[HIGH]** Specific architecture, scope, and libraries for a sub-project.                  |
+| **@TASKS**        | `.specs/features/[feature]/tasks.md`        | **[HIGH]** Granular feature execution plan (loads automatically inside specific features). |
 
 ---
 
@@ -50,13 +50,13 @@ Platform:  Mobile/Casual
 
 ### Key Paths
 
-| Purpose     | Path                                            |
-| ----------- | ----------------------------------------------- |
-| C# Scripts  | `<UNITY_PROJECT_NAME>/Assets/Scripts/`          |
-| UI/Menus    | `<UNITY_PROJECT_NAME>/Assets/Scripts/UI/`       |
-| Core Logic  | `<UNITY_PROJECT_NAME>/Assets/Scripts/Core/`     |
-| Data Models | `<UNITY_PROJECT_NAME>/Assets/Scripts/Data/`     |
-| Prefabs     | `<UNITY_PROJECT_NAME>/Assets/Prefabs/`          |
+| Purpose     | Path                                        |
+| ----------- | ------------------------------------------- |
+| C# Scripts  | `<UNITY_PROJECT_NAME>/Assets/Scripts/`      |
+| UI/Menus    | `<UNITY_PROJECT_NAME>/Assets/Scripts/UI/`   |
+| Core Logic  | `<UNITY_PROJECT_NAME>/Assets/Scripts/Core/` |
+| Data Models | `<UNITY_PROJECT_NAME>/Assets/Scripts/Data/` |
+| Prefabs     | `<UNITY_PROJECT_NAME>/Assets/Prefabs/`      |
 
 ---
 
@@ -64,14 +64,31 @@ Platform:  Mobile/Casual
 
 **You are the Kernel. When a task matches a domain, load the Module.**
 
-| Domain / Keyword                      | Action (Read File)                         | Description                                                            |
-| :------------------------------------ | :----------------------------------------- | :--------------------------------------------------------------------- |
-| **Execution, Planning, Architecture** | `.agents/skills/brain/SKILL.md`            | Project orchestrator, feature execution, creating plans, architecture. |
-| **Unity Gameplay, C#**                | `.agents/skills/unity-gameplay/SKILL.md`   | Unity specific logic, Raycast, FSM, Tweening, Physics.                 |
-| **Code Review, PR**                   | `.agents/skills/code-review/SKILL.md`      | Code review checklist & patterns.                                      |
-| **Debugging, Errors**                 | `.agents/skills/debugging/SKILL.md`        | Systematic debugging workflow.                                         |
-| **Testing, Coverage**                 | `.agents/skills/testing/SKILL.md`          | Test writing (Unity Test Framework).                                   |
-| **Post-Execution, Sync**              | `.agents/workflows/post-execution-sync.md` | Auto-sync .specs & Skills after changes.                               |
+| Domain / Keyword                      | Action (Read File)                                  | Description                                                            |
+| :------------------------------------ | :-------------------------------------------------- | :--------------------------------------------------------------------- |
+| **Execution, Planning, Architecture** | `.agents/skills/brain/SKILL.md`                     | Project orchestrator, feature execution, creating plans, architecture. |
+| **Post-Execution, Sync**              | `.agents/workflows/post-execution-sync.md`          | Auto-sync .specs & Skills after changes.                               |
+| **Unity Gameplay (Cheezy)**           | `.agents/skills/unity-gameplay-cheezy/SKILL.md`     | Logic gameplay riêng cho Cheezy-Savoround.                             |
+| **Unity Movement Style (Maurice)**    | `.agents/skills/unity-2d-movement/SKILL.md`         | Coding style cho Player/Enemy movement, dùng cho Maurice.              |
+| **Feature Scaffold**                  | `.agents/skills/uw-unity-feature-scaffold/SKILL.md` | Tạo module mới (folder, asmdef, namespace).                            |
+| **Project Setup**                     | `.agents/skills/uw-unity-project-setup/SKILL.md`    | Khởi tạo dự án Unity từ đầu.                                           |
+| **DI / Service Architecture**         | `.agents/skills/uw-dependency-injection/SKILL.md`   | Chỉ dùng khi `STACK.md -> architecture_pattern: di-first`.             |
+| **ScriptableObject Data/Event**       | `.agents/skills/uw-scriptable-object-arch/SKILL.md` | Data container, event channel, runtime set.                            |
+| **State Machine**                     | `.agents/skills/uw-state-machine/SKILL.md`          | Game flow, character state, UI flow.                                   |
+| **Game Feel / Juice**                 | `.agents/skills/uw-game-feel-integrator/SKILL.md`   | Screen shake, tween, particle, feedback.                               |
+| **Networking / Multiplayer**          | `.agents/skills/uw-network-setup/SKILL.md`          | Chỉ khi `STACK.md -> networking != none`.                              |
+| **UI Toolkit Binding**                | `.agents/skills/uw-ui-toolkit-binder/SKILL.md`      | Chỉ khi `STACK.md -> ui_system` là UIToolkit/Mixed.                    |
+| **Editor Tooling**                    | `.agents/skills/uw-unity-editor-tools/SKILL.md`     | Custom Inspector, PropertyDrawer, EditorWindow.                        |
+| **Unity Debugging (sâu)**             | `.agents/skills/uw-unity-debugging/SKILL.md`        | Ưu tiên hơn bản generic khi làm cho Maurice.                           |
+| **Unity Test Runner**                 | `.agents/skills/uw-unity-test-runner/SKILL.md`      | Map Gherkin → NUnit test (Ưu tiên Maurice).                            |
+| **Code Review (Unity sâu)**           | `.agents/skills/uw-code-review/SKILL.md`            | Ưu tiên hơn bản generic khi làm cho Maurice.                           |
+| **Skill Creation/Improve**            | `.agents/skills/uw-skill-creator/SKILL.md`          | Meta-skill: tạo/sửa/benchmark skill khác.                              |
+| **Code Review, PR (Generic)**         | `.agents/skills/code-review/SKILL.md`               | Code review chung.                                                     |
+| **Debugging, Errors (Generic)**       | `.agents/skills/debugging/SKILL.md`                 | Gỡ lỗi chung.                                                          |
+| **Testing, Coverage (Generic)**       | `.agents/skills/testing/SKILL.md`                   | Viết test chung.                                                       |
+
+> **LƯU Ý QUAN TRỌNG VỀ TRÙNG LẶP SKILL:**
+> Khi có 2 skill trùng Domain (bản Generic vs bản `uw-*`), **ƯU TIÊN** dùng bản `uw-*` nếu đang làm cho dự án `HeartOfTheNight-MauriceTeam` vì nó chuyên sâu cho Unity và tuân thủ chặt chẽ Mono-repo. Chỉ dùng bản Generic nếu đang làm cho `Cheezy-Savoround` hoặc các dự án không yêu cầu kiến trúc sâu.
 
 > **PROTOCOL:**
 >
@@ -100,7 +117,7 @@ Platform:  Mobile/Casual
 0.  **Context:** Which project are we working on? (Read `.specs/project/WORKSPACE.md` to identify the `[feature]` project context first).
 1.  **Scope:** Is this in `@STACK`?
 2.  **Impact:** What breaks? (Check `imports`, `@ARCHITECTURE`).
-3.  **Dependencies:** Does this require a specialized Skill? (Load it).
+3.  **Dependencies & Skill Suggestion:** Does this require a specialized Skill? (Check the Routing Table in Section 3. If a skill like DI, State Machine, hay UI Toolkit matches the task, you MUST **proactively suggest** using it to the user before writing any code).
 
 ---
 
@@ -120,7 +137,7 @@ Platform:  Mobile/Casual
     - Quyết định kỹ thuật quan trọng? → Append vào `@STATE`
     - Pattern mới cần ghi nhớ? → Append vào CONVENTIONS.md hoặc SKILL.md hiện có
     - Kết thúc bằng dòng: `🔄 Sync: [files updated] ✅` hoặc `🔄 Sync: No spec updates needed.`
-    > ℹ️ Chi tiết đầy đủ hơn xem `.agents/workflows/post-execution-sync.md`
+      > ℹ️ Chi tiết đầy đủ hơn xem `.agents/workflows/post-execution-sync.md`
 
 ### B. The "Update Specs" Loop
 
