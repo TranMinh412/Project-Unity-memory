@@ -1,5 +1,5 @@
 ---
-name: skill-unity-gameplay
+name: unity-gameplay-cheezy
 description: Áp dụng khi lập trình logic Gameplay cho Unity (Cheezy-Savoround). Chứa luật về FSM, Event System, Data-Driven và Conventions.
 version: 1.0.0
 author: Cheezy-Savoround
@@ -16,7 +16,7 @@ author: Cheezy-Savoround
 Trước khi viết code, BẮT BUỘC phải đọc/kiểm tra:
 
 1.  **File `Readme.md`**: Nắm rõ System Flow (Luồng chạy chính) của game.
-2.  **File `.specs/project/ARCHITECTURE.md` (nếu có)**: Kiểm tra các quyết định kiến trúc đã chốt.
+2.  **File `.specs/features/Cheezy-Savoround/ARCHITECTURE.md` (nếu có)**: Kiểm tra các quyết định kiến trúc đã chốt.
 
 ---
 

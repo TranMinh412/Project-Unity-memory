@@ -26,12 +26,12 @@ trigger: always_on
 
 | Document          | File Path                            | Purpose / Trigger                                                                          |
 | :---------------- | :----------------------------------- | :----------------------------------------------------------------------------------------- |
-| **@STACK**        | `.specs/project/STACK.md`            | **[CRITICAL]** Scope, Goals, Tech Stack, Identity.                                         |
-| **@ARCHITECTURE** | `.specs/project/ARCHITECTURE.md`     | **[CRITICAL]** Full technical deep dive. **READ FIRST for any technical question.**        |
-| **@ROADMAP**      | `.specs/project/ROADMAP.md`          | **[MED]** Milestones and timeline.                                                         |
-| **@STATE**        | `.specs/project/STATE.md`            | **[LOG]** Decisions, blockers, risks, and lessons learned.                                 |
-| **@CONVENTIONS**  | `.specs/project/CONVENTIONS.md`      | **[MED]** Coding rules and patterns.                                                       |
-| **@FEATURE_SPEC** | `.specs/features/[feature]/spec.md`  | **[HIGH]** Specific architecture, scope, and libraries for a sub-project.                  |
+| **@STACK**        | `.specs/features/[feature]/STACK.md`            | **[CRITICAL]** Scope, Goals, Tech Stack, Identity.                                         |
+| **@ARCHITECTURE** | `.specs/features/[feature]/ARCHITECTURE.md`     | **[CRITICAL]** Full technical deep dive. **READ FIRST for any technical question.**        |
+| **@ROADMAP**      | `.specs/features/[feature]/ROADMAP.md`          | **[MED]** Milestones and timeline.                                                         |
+| **@STATE**        | `.specs/features/[feature]/STATE.md`            | **[LOG]** Decisions, blockers, risks, and lessons learned.                                 |
+| **@CONVENTIONS**  | `.specs/project/CONVENTIONS.md`                 | **[MED]** Global Workspace coding rules and patterns (Zero GC, Naming).                    |
+| **@FEATURE_SPEC** | `.specs/features/[feature]/spec.md`             | **[HIGH]** Specific architecture, scope, and libraries for a sub-project.                  |
 | **@TASKS**        | `.specs/features/[feature]/tasks.md` | **[HIGH]** Granular feature execution plan (loads automatically inside specific features). |
 
 ---
@@ -97,6 +97,7 @@ Platform:  Mobile/Casual
 
 **DO NOT** write code until you have validated:
 
+0.  **Context:** Which project are we working on? (Read `.specs/project/WORKSPACE.md` to identify the `[feature]` project context first).
 1.  **Scope:** Is this in `@STACK`?
 2.  **Impact:** What breaks? (Check `imports`, `@ARCHITECTURE`).
 3.  **Dependencies:** Does this require a specialized Skill? (Load it).

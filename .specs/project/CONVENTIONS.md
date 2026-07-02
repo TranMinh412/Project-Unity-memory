@@ -17,6 +17,6 @@
 - **Zero GC Alloc in Update:** Cấm tuyệt đối việc sử dụng `GameObject.Find()`, `GetComponent()`, hoặc tạo mới vùng nhớ (`new List`, `new Dictionary`, cộng chuỗi string) trong các hàm chạy liên tục mỗi khung hình (Update).
 - **Object Pooling:** Phải xây dựng hệ thống tái sử dụng (Pool) cho các tài nguyên sinh ra liên tục (như quái vật, tia đạn, text sát thương).
 - **Draw Call / Batches Control:** 
-  - Gom toàn bộ ảnh UI phẳng vào Sprite Atlas.
-  - Sử dụng Static Batching cho bàn chơi cố định và GPU Instancing / Dynamic Batching cho các mô hình giống nhau xuất hiện liên tục (rất quan trọng cho game 3D).
+  - Gom toàn bộ ảnh UI phẳng và Sprite 2D vào Sprite Atlas.
+  - Tận dụng Static Batching cho môi trường tĩnh và GPU Instancing/Dynamic Batching nếu có nhiều object giống nhau.
 - **UI Canvas Optimization:** Bắt buộc tách UI thành Canvas tĩnh (như khung viền, background) và Canvas động (như thanh máu, điểm số) để tránh Engine phải render lại (Rebuild) toàn bộ UI mỗi khi điểm số thay đổi.

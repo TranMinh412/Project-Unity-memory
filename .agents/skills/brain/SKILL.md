@@ -16,10 +16,10 @@ author: Cheezy-Savoround
 
 ## 1. CONTEXT PROTOCOL (Read First)
 
-Before executing or making code changes, you MUST read/verify:
-1. **File A:** `.specs/project/STACK.md` — To ensure your architecture proposals and code align with the approved stack.
-2. **File B:** `.specs/project/STATE.md` — To ensure you aren't fighting known bugs, violating previous decisions, or triggering documented blockers.
-3. **File C:** `.specs/project/ARCHITECTURE.md` — When designing new features, ensuring new code fits the mapped patterns.
+Before executing or making code changes, you MUST read/verify (replace `[feature]` with the active project, e.g., `Cheezy-Savoround` or `HeartOfTheNight-MauriceTeam`):
+1. **File A:** `.specs/features/[feature]/STACK.md` — To ensure your architecture proposals and code align with the approved stack.
+2. **File B:** `.specs/features/[feature]/STATE.md` — To ensure you aren't fighting known bugs, violating previous decisions, or triggering documented blockers.
+3. **File C:** `.specs/features/[feature]/ARCHITECTURE.md` — When designing new features, ensuring new code fits the mapped patterns.
 
 > **Token Safety Protocol:**
 > Do NOT load multiple feature specifications simultaneously. Load ONE feature spec at a time. Do NOT load full architecture AND full feature spec simultaneously unless explicitly mapping integration points.

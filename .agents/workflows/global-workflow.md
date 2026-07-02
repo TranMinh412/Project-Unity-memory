@@ -2,13 +2,13 @@
 description: Global development workflow — Unity project environment setup and common tasks
 ---
 
-# Global Workflow: Cheezy-Savoround (Unity)
+# Global Workflow: [Unity Project]
 
 ## Local Development Setup
 
 ```bash
 # 1. Mở dự án bằng Unity Editor
-# Khởi động Unity Hub, chọn đúng phiên bản Unity và mở thư mục Cheezy-Savoround-PH61823.
+# Khởi động Unity Hub, chọn đúng phiên bản Unity và mở thư mục dự án tương ứng.
 
 # 2. Xử lý lỗi Cache (Nếu cần)
 # Nếu dự án bị lỗi cấu trúc bất thường, đóng Unity, xóa thư mục Library/ và mở lại.
