@@ -1,15 +1,15 @@
 ---
 name: uw-unity-feature-scaffold
-description: Create a complete feature module with folder structure, Assembly Definition (.asmdef), test assembly, and namespace. Use when adding a new feature, system, or module to a Unity project. Triggers on requests like "create a new feature", "scaffold a module", "add a combat system", "I need a health system", "set up inventory", "create a new module for X", "add a new system", "new feature folder", or any task requiring new folders, assemblies, or namespaces for a gameplay feature — even when the user just names a system they want to build from scratch. Reads ProjectConfig.yaml for folder_strategy and MCP availability.
+description: Create a complete feature module with folder structure, Assembly Definition (.asmdef), test assembly, and namespace. Use when adding a new feature, system, or module to a Unity project. Triggers on requests like "create a new feature", "scaffold a module", "add a combat system", "I need a health system", "set up inventory", "create a new module for X", "add a new system", "new feature folder", or any task requiring new folders, assemblies, or namespaces for a gameplay feature — even when the user just names a system they want to build from scratch. Reads STACK.md for folder_strategy and MCP availability.
 ---
 
 # Unity Feature Scaffold
 
-Generate a feature module with folders, assembly definitions, and a starter class based on `docs/ProjectConfig.yaml`.
+Generate a feature module with folders, assembly definitions, and a starter class based on `.specs/features/[feature]/STACK.md`.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `project_name` — derive root namespace by converting to PascalCase (e.g., `"my cool game"` → `MyCoolGame`)
    - `folder_strategy` — `"feature-based"` or `"type-based"`
    - `architecture_pattern` — `"so-first"` or `"di-first"` (informs post-scaffold next steps)
@@ -124,7 +124,7 @@ Keep dependencies **one-directional**. If two features need to communicate bidir
 ## After Scaffolding
 
 - **Write tests:** Use `uw-unity-test-runner` — the test asmdef is already configured.
-- **Add architecture patterns:** Use `uw-scriptable-object-arch` (SO-first) or `uw-dependency-injection` (DI-first) based on `ProjectConfig.yaml → architecture_pattern`.
+- **Add architecture patterns:** Use `uw-scriptable-object-arch` (SO-first) or `uw-dependency-injection` (DI-first) based on `STACK.md → architecture_pattern`.
 - **Create editor tools:** Use `uw-unity-editor-tools` for custom inspectors or editor windows alongside the feature.
 
 ## Rules
@@ -132,5 +132,6 @@ Keep dependencies **one-directional**. If two features need to communicate bidir
 - All scripts must live inside an `.asmdef`.
 - All paths start with `Assets/_Project/` to avoid Asset Store conflicts.
 - Never create, modify, or delete `.meta` files — Unity generates them automatically.
-- Asmdef file names use dot notation: `{RootNamespace}.{FeatureName}.asmdef` (per `NAMING_CONVENTIONS.md`).
-- If `ProjectConfig.yaml → mcp.unity_mcp` is `true`, call `refresh_unity` after creating files. Otherwise, instruct the user to return to Unity Editor for auto-refresh.
+- Asmdef file names use dot notation: `{RootNamespace}.{FeatureName}.asmdef` (per `.specs/project/CONVENTIONS.md`).
+- If `STACK.md → mcp.unity_mcp` is `true`, call `refresh_unity` after creating files. Otherwise, instruct the user to return to Unity Editor for auto-refresh.
+

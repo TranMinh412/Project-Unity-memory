@@ -1,6 +1,6 @@
----
+﻿---
 name: uw-game-feel-integrator
-description: Inject juice and game feel into gameplay code using the project's chosen middleware. Use when adding screen shake, tweens, particles, audio feedback, haptics, hitstop, or any form of "juice" to gameplay events. Triggers on requests like "add juice", "make this feel better", "add screen shake", "polish this feature", "add feedback to this action", "make the hit feel impactful", "add particles when", "screen shake on damage", "tween this", "add camera shake", "make this snappy", or any game feel, polish, or feedback work. Always reads ProjectConfig.yaml -> feel_tools and docs/GFD.md Feedback Matrix before generating code.
+description: Inject juice and game feel into gameplay code using the project's chosen middleware. Use when adding screen shake, tweens, particles, audio feedback, haptics, hitstop, or any form of "juice" to gameplay events. Triggers on requests like "add juice", "make this feel better", "add screen shake", "polish this feature", "add feedback to this action", "make the hit feel impactful", "add particles when", "screen shake on damage", "tween this", "add camera shake", "make this snappy", or any game feel, polish, or feedback work. Always reads STACK.md -> feel_tools and .specs/features/[feature]/STATE.md Feedback Matrix before generating code.
 ---
 
 # Game Feel Integrator
@@ -9,14 +9,14 @@ Apply juice to gameplay events using the GFD Feedback Matrix.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `feel_tools.tweening` — which tween library (`"dotween"`, `"primetween"`, or `"none"`).
    - `feel_tools.feedback_system` — feedback framework if any.
    - `feel_tools.audio` — audio middleware.
    - `feel_tools.camera` — camera system (Cinemachine, custom, etc.).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
-2. Read `docs/GFD.md` for the Feedback Matrix — it defines which events need which feedback channels.
-3. Read `docs/CODING_STANDARDS.md` for async patterns (`Awaitable` + `CancellationToken`) used in middleware-agnostic patterns.
+2. Read `.specs/features/[feature]/STATE.md` for the Feedback Matrix — it defines which events need which feedback channels.
+3. Read `.agents/rules/engineering-laws.md` for async patterns (`Awaitable` + `CancellationToken`) used in middleware-agnostic patterns.
 
 ## Rule of Three
 Every meaningful action needs feedback in **at least 3 channels**: Visual, Audio, Kinesthetic.
@@ -143,4 +143,5 @@ private async Awaitable FlashAsync()
 - Sync ADSR across channels — mismatched timing breaks immersion.
 - `[SerializeField] private` for shake profiles, tween durations, and other tuning values.
 - All game feel code must live inside an `.asmdef`.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+

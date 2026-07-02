@@ -1,20 +1,20 @@
----
+﻿---
 name: uw-dependency-injection
-description: Opt-in DI architecture using Reflex for Unity 6+. Covers container setup, scoping, injection, command pattern, update management, and class taxonomy. Use when ProjectConfig.yaml -> architecture_pattern is "di-first", or when the user asks about dependency injection, inversion of control, service architecture, or testable game code. Triggers on "set up DI", "add dependency injection", "create a service", "wire up dependencies", "make this testable", "decouple these systems", "add a command pattern", "cross-feature communication", or architecture discussions involving testability, decoupling, and service layers. Only activates when ProjectConfig.yaml -> architecture_pattern is "di-first". For simpler projects, use uw-scriptable-object-arch instead.
+description: Opt-in DI architecture using Reflex for Unity 6+. Covers container setup, scoping, injection, command pattern, update management, and class taxonomy. Use when STACK.md -> architecture_pattern is "di-first", or when the user asks about dependency injection, inversion of control, service architecture, or testable game code. Triggers on "set up DI", "add dependency injection", "create a service", "wire up dependencies", "make this testable", "decouple these systems", "add a command pattern", "cross-feature communication", or architecture discussions involving testability, decoupling, and service layers. Only activates when STACK.md -> architecture_pattern is "di-first". For simpler projects, use uw-scriptable-object-arch instead.
 ---
 
 # Dependency Injection (Reflex)
 
-DI-first architecture for complex Unity projects. **Only applies when `ProjectConfig.yaml -> architecture_pattern: di-first`**. For simpler projects, use `uw-scriptable-object-arch` (SO-first) instead.
+DI-first architecture for complex Unity projects. **Only applies when `STACK.md -> architecture_pattern: di-first`**. For simpler projects, use `uw-scriptable-object-arch` (SO-first) instead.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `architecture_pattern` — must be `"di-first"` for this skill to apply.
    - `di_framework` — should be `"reflex"` (the default and recommended framework).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
-2. Read `docs/CODING_STANDARDS.md` for async patterns (`Awaitable` + `CancellationToken`), access modifiers (`internal` for cross-class helpers within an asmdef), and class structure.
-3. Read `docs/NAMING_CONVENTIONS.md` for file/class naming.
+2. Read `.agents/rules/engineering-laws.md` for async patterns (`Awaitable` + `CancellationToken`), access modifiers (`internal` for cross-class helpers within an asmdef), and class structure.
+3. Read `.specs/project/CONVENTIONS.md` for file/class naming.
 4. Ensure each feature module has its own `.asmdef` — create with `uw-unity-feature-scaffold`. Installers, Controllers, Services all live inside feature asmdefs.
 
 ## When to Use DI vs SO-First
@@ -190,7 +190,7 @@ See `uw-scriptable-object-arch` for data container and event channel patterns th
 
 ## Rules
 
-- Only applies when `ProjectConfig.yaml -> architecture_pattern: di-first`.
+- Only applies when `STACK.md -> architecture_pattern: di-first`.
 - Always bind to interfaces, not concrete types (interface-first rule).
 - Constructor injection preferred for plain C# classes. `[Inject]` attribute for MonoBehaviours.
 - Commands are the ONLY classes allowed to cross feature boundaries.
@@ -199,4 +199,5 @@ See `uw-scriptable-object-arch` for data container and event channel patterns th
 - Use `Awaitable` with `CancellationToken` for async operations (per `CODING_STANDARDS.md`).
 - CoreScene is Build Settings index 0. Only CoreInitiator has `Start()`.
 - Break circular dependencies with Commands, events, or shared interface assemblies — never with direct cross-feature references.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+

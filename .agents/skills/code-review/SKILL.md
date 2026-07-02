@@ -14,7 +14,7 @@ author: Cheezy-Savoround
 ## 1. CONTEXT PROTOCOL (Read First)
 Before reviewing, you MUST read/verify:
 1.  **Engineering Laws:** `.agents/rules/engineering-laws.md` — Non-negotiable standards.
-2.  **Architecture:** `.specs/project/ARCHITECTURE.md` — Understand existing patterns.
+2.  **Architecture:** `.specs/features/[feature]/ARCHITECTURE.md` — Understand existing patterns.
 3.  **Tech Spec:** `.specs/project/CONVENTIONS.md` — Module patterns and conventions.
 
 ---

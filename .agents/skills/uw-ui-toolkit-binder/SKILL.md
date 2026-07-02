@@ -1,6 +1,6 @@
----
+﻿---
 name: uw-ui-toolkit-binder
-description: Generate Unity 6+ UI Toolkit Runtime Data Binding code using MVVM pattern with [CreateProperty], DataBinding, and PropertyPath. Use when creating UI screens, HUDs, menus, inventories, settings panels, or any data-bound UI elements with UI Toolkit. Triggers on requests like "create a health bar", "build the HUD", "make a settings screen", "bind data to UI", "create an inventory UI", "add a pause menu", "show player stats on screen", "build a shop UI", "create a dialogue box", or any task involving runtime UI layout, styling, or data display. Also use when the user mentions UXML, USS, ViewModel, or UI bindings. Only activates when ProjectConfig.yaml -> ui_system is "UIToolkit" or "Mixed". Requires Unity 6.0+.
+description: Generate Unity 6+ UI Toolkit Runtime Data Binding code using MVVM pattern with [CreateProperty], DataBinding, and PropertyPath. Use when creating UI screens, HUDs, menus, inventories, settings panels, or any data-bound UI elements with UI Toolkit. Triggers on requests like "create a health bar", "build the HUD", "make a settings screen", "bind data to UI", "create an inventory UI", "add a pause menu", "show player stats on screen", "build a shop UI", "create a dialogue box", or any task involving runtime UI layout, styling, or data display. Also use when the user mentions UXML, USS, ViewModel, or UI bindings. Only activates when STACK.md -> ui_system is "UIToolkit" or "Mixed". Requires Unity 6.0+.
 ---
 
 # UI Toolkit Binder
@@ -9,13 +9,13 @@ Generate MVVM UI code using Unity 6's Runtime Data Binding.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `ui_system` — must be `"UIToolkit"` or `"Mixed"`. If `"UGUI"`, this skill does not apply.
    - `architecture_pattern` — `"so-first"` or `"di-first"` (affects how ViewModels get their data).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
-2. Read `docs/NAMING_CONVENTIONS.md` — UXML files use PascalCase (e.g., `PlayerHUD.uxml`), USS files match (e.g., `PlayerHUD.uss`).
-3. Read `docs/CODING_STANDARDS.md` — class structure order, serialization rules, async patterns apply to ViewModels.
-4. If UI motion/animation is needed, check `docs/GFD_Template.md` for guidelines and use `uw-game-feel-integrator` for tween integration.
+2. Read `.specs/project/CONVENTIONS.md` — UXML files use PascalCase (e.g., `PlayerHUD.uxml`), USS files match (e.g., `PlayerHUD.uss`).
+3. Read `.agents/rules/engineering-laws.md` — class structure order, serialization rules, async patterns apply to ViewModels.
+4. If UI motion/animation is needed, check `.specs/features/[feature]/STATE.md` for guidelines and use `uw-game-feel-integrator` for tween integration.
 
 ## When to Use UI Toolkit vs uGUI
 
@@ -25,7 +25,7 @@ Generate MVVM UI code using Unity 6's Runtime Data Binding.
 | Animated in-game HUD, world-space UI | **uGUI** | Easier world-space Canvas, mature animation workflow |
 | Complex project with both | **Hybrid** | UI Toolkit for menus, uGUI for in-game HUD |
 
-If `ProjectConfig.yaml -> ui_system` is `"UGUI"`, stop here — use uGUI patterns instead.
+If `STACK.md -> ui_system` is `"UGUI"`, stop here — use uGUI patterns instead.
 
 ## Architecture
 
@@ -376,4 +376,5 @@ Keep formatting logic in the ViewModel, not the View layer. The View should only
 - Register event callbacks in `OnEnable`, unregister in `OnDisable`.
 - `[SerializeField] private` for Inspector-exposed fields on ViewModels and Controllers — never public fields.
 - Keep formatting/conversion logic in the ViewModel. The View only displays strings and reacts to events.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+

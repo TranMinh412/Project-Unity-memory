@@ -66,6 +66,6 @@ Your workflow triggers based on the environment state:
 > **Thư mục `references/` hiện trống.** Các file tham khảo sẽ được thêm vào khi cần thiết trong quá trình phát triển dự án (ví dụ: `references/session-handoff.md` khi cần checkpoint giữa phiên làm việc).
 >
 > Trong lúc chờ, toàn bộ luật code và workflow đã được tập trung vào:
-> - `.agents/skills/unity-gameplay/SKILL.md` — Luật gameplay chính
+> - Các skill gameplay tương ứng (VD: `unity-gameplay-cheezy`, `unity-2d-movement`) — Luật code logic
 > - `.agents/rules/engineering-laws.md` — Luật kiến trúc
 > - `.agents/workflows/post-execution-sync.md` — Tài liệu tham khảo sync (logic chính đã inline vào `universal-agent-rules.md` → mục "Do Work" Loop, step 7)

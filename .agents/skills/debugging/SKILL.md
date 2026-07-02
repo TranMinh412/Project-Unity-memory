@@ -13,9 +13,9 @@ author: Cheezy-Savoround
 
 ## 1. CONTEXT PROTOCOL (Read First)
 Before debugging, you MUST read/verify:
-1.  **Architecture:** `.specs/project/ARCHITECTURE.md` — Understand the system flow.
-2.  **Known Issues:** `.specs/project/STATE.md` — Check if this is a known issue.
-3.  **Decision Log:** `.specs/project/STATE.md` — Check if behavior is intentional.
+1.  **Architecture:** `.specs/features/[feature]/ARCHITECTURE.md` — Understand the system flow.
+2.  **Known Issues:** `.specs/features/[feature]/STATE.md` — Check if this is a known issue.
+3.  **Decision Log:** `.specs/features/[feature]/STATE.md` — Check if behavior is intentional.
 
 ---
 
@@ -24,7 +24,7 @@ Before debugging, you MUST read/verify:
 *   **Evidence First:** Never guess. Read logs, check data, reproduce the issue before proposing fixes.
 *   **Isolate Before Fixing:** Identify the exact file, function, and line before writing a fix.
 *   **One Change at a Time:** Make one targeted fix, then verify. Never shotgun-debug.
-*   **Document Findings:** Update `.specs/project/STATE.md` if the bug reveals a systemic issue.
+*   **Document Findings:** Update `.specs/features/[feature]/STATE.md` if the bug reveals a systemic issue.
 
 ---
 

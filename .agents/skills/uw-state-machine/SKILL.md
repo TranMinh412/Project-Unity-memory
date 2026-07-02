@@ -1,6 +1,6 @@
----
+﻿---
 name: uw-state-machine
-description: Interface-based state machine patterns for Unity game states, character controllers, and UI flows. Use when implementing game flow (menu -> gameplay -> game over), character states (idle -> run -> jump -> fall), AI behavior states, or UI screen transitions. Triggers on "state machine", "game states", "character states", "screen flow", "game flow", "add states to", "idle/run/jump", "menu flow", "AI states", "boss phases", or any task involving managing discrete states with transitions between them. Reads ProjectConfig.yaml -> architecture_pattern to adapt patterns for SO-first or DI-first.
+description: Interface-based state machine patterns for Unity game states, character controllers, and UI flows. Use when implementing game flow (menu -> gameplay -> game over), character states (idle -> run -> jump -> fall), AI behavior states, or UI screen transitions. Triggers on "state machine", "game states", "character states", "screen flow", "game flow", "add states to", "idle/run/jump", "menu flow", "AI states", "boss phases", or any task involving managing discrete states with transitions between them. Reads STACK.md -> architecture_pattern to adapt patterns for SO-first or DI-first.
 ---
 
 # State Machine
@@ -9,10 +9,10 @@ Interface-based state machines for game flow, characters, and UI.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `architecture_pattern` — `"so-first"` or `"di-first"` (affects how states and the StateMachine are created and wired).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
-2. Read `docs/CODING_STANDARDS.md` for async patterns (`Awaitable` + `CancellationToken`) — state transitions are async.
+2. Read `.agents/rules/engineering-laws.md` for async patterns (`Awaitable` + `CancellationToken`) — state transitions are async.
 3. Ensure the feature has an `.asmdef` — create with `uw-unity-feature-scaffold` if needed.
 
 ## Core Interface
@@ -299,4 +299,5 @@ Use `uw-scriptable-object-arch` event channels for communication between states 
 - Only one transition per frame — check conditions with early `return` after starting a transition.
 - All state machine code must live inside an `.asmdef`.
 - Use `[SerializeField] private` for any Inspector-exposed fields on MonoBehaviour owners.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+

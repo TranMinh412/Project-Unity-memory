@@ -1,6 +1,6 @@
----
+﻿---
 name: uw-network-setup
-description: Generates networking boilerplate adapted to the project's chosen networking package (NGO, Mirror, Photon). Use when setting up multiplayer systems, syncing state, writing RPCs, building lobbies, or designing an authority matrix. Triggers on requests like "add multiplayer", "sync player health", "create an RPC", "set up lobbies", "make this networked", "add co-op", "replicate this across clients", "spawn networked objects", "handle player disconnect", "create a matchmaking system", or any task involving network state synchronization, remote procedure calls, or client-server architecture. Always reads ProjectConfig.yaml -> networking before generating code. If networking is "none", do NOT generate networking code.
+description: Generates networking boilerplate adapted to the project's chosen networking package (NGO, Mirror, Photon). Use when setting up multiplayer systems, syncing state, writing RPCs, building lobbies, or designing an authority matrix. Triggers on requests like "add multiplayer", "sync player health", "create an RPC", "set up lobbies", "make this networked", "add co-op", "replicate this across clients", "spawn networked objects", "handle player disconnect", "create a matchmaking system", or any task involving network state synchronization, remote procedure calls, or client-server architecture. Always reads STACK.md -> networking before generating code. If networking is "none", do NOT generate networking code.
 ---
 
 # Network Setup
@@ -9,13 +9,13 @@ Generate networking code adapted to the project's chosen package.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `networking` — the package name (`"ngo"`, `"mirror"`, `"photon"`, or `"none"`). If `"none"`, stop — do not generate networking code.
    - `architecture_pattern` — `"so-first"` or `"di-first"` (affects how network services are wired).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
-2. Read `docs/TDD_Template.md` for the authority matrix (who owns what data).
-3. Read `docs/CODING_STANDARDS.md` for async patterns (`Awaitable` + `CancellationToken`) and class structure.
-4. Read `docs/NAMING_CONVENTIONS.md` for file/class naming.
+2. Read `.specs/features/[feature]/ARCHITECTURE.md` for the authority matrix (who owns what data).
+3. Read `.agents/rules/engineering-laws.md` for async patterns (`Awaitable` + `CancellationToken`) and class structure.
+4. Read `.specs/project/CONVENTIONS.md` for file/class naming.
 
 ## Package Quick Reference
 
@@ -182,15 +182,16 @@ This is complex. NGO has built-in `NetworkTransform` prediction. Mirror has comm
 
 - **DI integration:** If `architecture_pattern: "di-first"`, use `uw-dependency-injection` to register network services in the container.
 - **Write tests:** Use `uw-unity-test-runner` — test game logic in EditMode by mocking `INetworkService`. Test actual networking in PlayMode.
-- **Authority matrix:** Fill in `docs/TDD_Template.md` with the authority matrix before writing any sync code.
+- **Authority matrix:** Fill in `.specs/features/[feature]/ARCHITECTURE.md` with the authority matrix before writing any sync code.
 
 ## Rules
 
-- **Server-authoritative** unless `docs/TDD_Template.md` explicitly specifies peer-to-peer.
+- **Server-authoritative** unless `.specs/features/[feature]/ARCHITECTURE.md` explicitly specifies peer-to-peer.
 - **Never trust client input** — always validate on the server (bounds check, rate limit, permission check).
 - Cache `NetworkBehaviour` references in `Awake()` or `OnNetworkSpawn()` — never `GetComponent` in `Update`.
 - Use `[SerializeField] private` for prefab references and configuration — never public fields.
-- Check the package version in `ProjectConfig.yaml` before using any API — breaking changes happen between major versions.
+- Check the package version in `STACK.md` before using any API — breaking changes happen between major versions.
 - Use `Awaitable` with `CancellationToken` for async network operations (connection, scene loading) per `CODING_STANDARDS.md`.
 - All networking code must live inside an `.asmdef`.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+

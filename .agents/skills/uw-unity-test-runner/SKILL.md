@@ -9,11 +9,11 @@ Generate NUnit tests mapped from GDD Gherkin scenarios.
 
 ## Before You Start
 
-1. Read `docs/GDD.md` for Gherkin scenarios (Given/When/Then) to convert into tests.
+1. Read `.specs/features/[feature]/STACK.md` for Gherkin scenarios (Given/When/Then) to convert into tests.
 2. Ensure a `Tests.asmdef` exists for the feature — create with `uw-unity-feature-scaffold` if needed.
-3. Read `docs/CODING_STANDARDS.md` for async patterns (`Awaitable` + `CancellationToken`) used in PlayMode tests.
-4. Read `docs/NAMING_CONVENTIONS.md` for test class and file naming.
-5. Check `docs/ProjectConfig.yaml -> mcp.unity_mcp` — if `true`, use `run_tests` / `get_test_job` to execute tests. Otherwise, instruct the user to run via Unity Editor (Window -> General -> Test Runner).
+3. Read `.agents/rules/engineering-laws.md` for async patterns (`Awaitable` + `CancellationToken`) used in PlayMode tests.
+4. Read `.specs/project/CONVENTIONS.md` for test class and file naming.
+5. Check `.specs/features/[feature]/STACK.md -> mcp.unity_mcp` — if `true`, use `run_tests` / `get_test_job` to execute tests. Otherwise, instruct the user to run via Unity Editor (Window -> General -> Test Runner).
 
 ## Test Types
 
@@ -338,6 +338,7 @@ Interface-based DI makes testing simple because every dependency is swappable. S
 - Use `[SetUp]` for fresh state per test — avoid shared mutable state between tests.
 - `DestroyImmediate` all created GameObjects in PlayMode `[TearDown]`.
 - Test edge cases: zero, negative, boundary, overflow, null, rapid repeated calls, already-dead/invalid state.
-- All test code must live inside a `.Tests.asmdef` (per `NAMING_CONVENTIONS.md`).
+- All test code must live inside a `.Tests.asmdef` (per `.specs/project/CONVENTIONS.md`).
 - Use `Assert.AreEqual(expected, actual, tolerance)` for float comparisons — never exact equality.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, use `run_tests` to execute. Otherwise, direct user to Test Runner window.
+- If `STACK.md -> mcp.unity_mcp` is `true`, use `run_tests` to execute. Otherwise, direct user to Test Runner window.
+

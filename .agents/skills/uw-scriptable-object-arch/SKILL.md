@@ -1,6 +1,6 @@
----
+﻿---
 name: uw-scriptable-object-arch
-description: Generate ScriptableObject-based systems including data containers, event channels, and runtime sets. Use when creating game data (weapons, enemies, items, abilities), cross-system events, or live object tracking. Triggers on requests like "create weapon data", "add an event system", "make a runtime set", "decouple these systems", "create item database", "add a damage event", "track active enemies", "create a config SO", "add game settings data", or any task involving ScriptableObject data containers, event-driven communication, or runtime object tracking. Reads ProjectConfig.yaml -> architecture_pattern to determine SO-first vs DI-first context.
+description: Generate ScriptableObject-based systems including data containers, event channels, and runtime sets. Use when creating game data (weapons, enemies, items, abilities), cross-system events, or live object tracking. Triggers on requests like "create weapon data", "add an event system", "make a runtime set", "decouple these systems", "create item database", "add a damage event", "track active enemies", "create a config SO", "add game settings data", or any task involving ScriptableObject data containers, event-driven communication, or runtime object tracking. Reads STACK.md -> architecture_pattern to determine SO-first vs DI-first context.
 ---
 
 # ScriptableObject Architecture
@@ -9,11 +9,11 @@ Generate SO patterns for data, events, and runtime collections.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `architecture_pattern` — `"so-first"` (default, this skill is primary) or `"di-first"` (SOs still hold data, but events become Commands — see `uw-dependency-injection`).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
-2. Read `docs/TDD_Template.md` for data architecture decisions.
-3. Read `docs/NAMING_CONVENTIONS.md` for SO file naming (PascalCase: `SwordData.asset`).
+2. Read `.specs/features/[feature]/ARCHITECTURE.md` for data architecture decisions.
+3. Read `.specs/project/CONVENTIONS.md` for SO file naming (PascalCase: `SwordData.asset`).
 4. Ensure the feature has an `.asmdef` — create with `uw-unity-feature-scaffold` if needed.
 
 ## Three Patterns
@@ -174,7 +174,7 @@ public class EnemyController : MonoBehaviour
 
 ## When to Consider DI Instead
 
-If your project needs any of these, check `ProjectConfig.yaml -> architecture_pattern` and consider switching to `di-first` with the `uw-dependency-injection` skill:
+If your project needs any of these, check `STACK.md -> architecture_pattern` and consider switching to `di-first` with the `uw-dependency-injection` skill:
 - Cross-feature orchestration beyond simple events (Command pattern)
 - Constructor injection for testability with mock services
 - Scoped lifetimes (per-scene, per-level services)
@@ -191,4 +191,5 @@ If your project needs any of these, check `ProjectConfig.yaml -> architecture_pa
 - Always unsubscribe from events in `OnDisable` — matching every `Subscribe` with an `Unsubscribe`.
 - All SO code must live inside an `.asmdef`.
 - SO file names use PascalCase (per `NAMING_CONVENTIONS.md`): `SwordData.asset`.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+

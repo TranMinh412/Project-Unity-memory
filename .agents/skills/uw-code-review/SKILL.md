@@ -1,4 +1,4 @@
----
+﻿---
 name: uw-code-review
 description: Pre-commit code quality review for Unity C# code. Checks against Rules, CODING_STANDARDS.md, NAMING_CONVENTIONS.md, and GDD Gherkin test coverage. Use when code has been written and tests are passing but before committing. Runs automatically at Step 8.5 of /uw-cmd-implement-feature. Triggers on "review this code", "check my implementation", "pre-commit review", "code review", "check before commit", "is this ready to commit", "review my changes", or any request to validate code quality before committing.
 ---
@@ -9,9 +9,9 @@ Pre-commit quality gate. Read the target files, then run this checklist. Output 
 
 ## Before You Start
 
-1. Read `docs/CODING_STANDARDS.md` for formatting, class structure, serialization, null safety, and async rules.
-2. Read `docs/NAMING_CONVENTIONS.md` for naming rules (private fields, properties, files, asmdefs).
-3. Read `docs/GDD.md` for Gherkin scenarios — every scenario should have a corresponding test.
+1. Read `.agents/rules/engineering-laws.md` for formatting, class structure, serialization, null safety, and async rules.
+2. Read `.specs/project/CONVENTIONS.md` for naming rules (private fields, properties, files, asmdefs).
+3. Read `.specs/features/[feature]/STACK.md` for Gherkin scenarios — every scenario should have a corresponding test.
 4. Read the files being reviewed in full before assessing.
 
 ## Checklist
@@ -54,7 +54,7 @@ Pre-commit quality gate. Read the target files, then run this checklist. Output 
 
 ### 6. Game Feel
 - [ ] If "later" was chosen in `/uw-cmd-implement-feature` Step 3: `// TODO(gamefeel): [feature] — pending` comment exists in the main script
-- [ ] If "later" was chosen: a pending row exists in `docs/GFD.md` Feedback Matrix
+- [ ] If "later" was chosen: a pending row exists in `.specs/features/[feature]/STATE.md` Feedback Matrix
 - [ ] If "now" was chosen: Rule of Three satisfied (visual + audio + kinesthetic minimum)
 
 ## Output Format
@@ -81,3 +81,4 @@ Do not commit until **Issues to fix** is "None".
 - **Debug failures:** Use `uw-unity-debugging` for systematic diagnosis of any issues found.
 - **Missing tests:** Use `uw-unity-test-runner` to generate tests for uncovered Gherkin scenarios.
 - **Missing game feel:** Use `uw-game-feel-integrator` if Rule of Three is not satisfied and "now" was chosen.
+

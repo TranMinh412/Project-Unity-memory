@@ -2,9 +2,9 @@
 trigger: always_on
 ---
 
-# Engineering Laws: <PROJECT_NAME>
+# Engineering Laws: Workspace
 
-> This document defines the non-negotiable architectural and performance standards for the <PROJECT_NAME> Unity project. All generated code and refactors must comply with these laws.
+> This document defines the non-negotiable architectural and performance standards for the Mono-repo Unity projects. All generated code and refactors must comply with these laws.
 
 ---
 
@@ -52,7 +52,7 @@ trigger: always_on
 **Goal:** Keep AI context sharp and prevent hallucinations.
 
 * **Domain Restriction:** AI must NOT suggest web frameworks (React, Vue, Node.js) or database ORMs for this project. This is a pure Unity C# game.
-* **Rule Adherence:** The AI must always consult `.specs/project/CONVENTIONS.md` and `.agents/skills/unity-gameplay/SKILL.md` before writing gameplay logic.
+* **Rule Adherence:** The AI must always consult `.specs/project/CONVENTIONS.md` and the relevant feature skill (e.g., `.agents/skills/unity-gameplay-cheezy/SKILL.md`) before writing gameplay logic.
 * **No Auto-Creating Skills:** CẤM tuyệt đối tự động tạo thư mục/file SKILL mới. Khi phát hiện pattern mới:
   1. Thuộc kỹ năng đã có (`brain`, `testing`, `debugging`…) → Append vào `SKILL.md` của kỹ năng đó.
   2. Là quy tắc cấu trúc chung → Append vào `.specs/project/CONVENTIONS.md`.

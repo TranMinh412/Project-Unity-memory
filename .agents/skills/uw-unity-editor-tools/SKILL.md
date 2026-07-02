@@ -1,4 +1,4 @@
----
+﻿---
 name: uw-unity-editor-tools
 description: Generate custom editor tooling including Custom Inspectors, PropertyDrawers, EditorWindows, Gizmos, and Handles. Use when building designer-facing tools, spatial visualization, batch operations, or custom component UIs. Triggers on requests like "create a custom inspector", "add gizmos", "build an editor window", "make this component designer-friendly", "add a debug visualization", "create a level editor tool", "add a property drawer", "make a batch rename tool", or any editor tooling work. Always uses SerializedProperty and Undo for safety.
 ---
@@ -9,12 +9,12 @@ Generate editor tooling that follows Unity best practices.
 
 ## Before You Start
 
-1. Read `docs/ProjectConfig.yaml` for:
+1. Read `.specs/features/[feature]/STACK.md` for:
    - `unity_version` — UI Toolkit editor UI requires 2022.2+ (all Unity 6+ projects qualify).
    - `ui_system` — if `"UIToolkit"` or `"Mixed"`, prefer UI Toolkit for editor UIs too (consistent approach).
    - `mcp.unity_mcp` — if `true`, call `refresh_unity` after creating files.
 2. Check if the feature has an `Editor/` asmdef — if not, create one. The Editor asmdef must reference the Runtime asmdef and have `Editor` as its only Include Platform.
-3. Read `docs/NAMING_CONVENTIONS.md` for editor script naming.
+3. Read `.specs/project/CONVENTIONS.md` for editor script naming.
 
 ## Core Rules (Non-Negotiable)
 
@@ -153,4 +153,5 @@ Common validations: unit test pass/fail, scene list completeness, missing compon
 - Editor scripts live in `Editor/` folders with their own `.asmdef` that includes only `Editor` platform.
 - Never reference Editor assemblies from Runtime assemblies.
 - `[SerializeField] private` for all Inspector fields — never public fields.
-- If `ProjectConfig.yaml -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+- If `STACK.md -> mcp.unity_mcp` is `true`, call `refresh_unity` after creating files.
+
