@@ -5,7 +5,7 @@ description: >
   The execution orchestrator. Creates atomic tasks with verification criteria, architecture
   decisions, and persistent memory across sessions.
 version: 1.0.0
-author: Cheezy-Savoround
+author: Cheezy-Savoround-PH61823
 ---
 
 # Role: Brain Orchestrator
@@ -16,7 +16,7 @@ author: Cheezy-Savoround
 
 ## 1. CONTEXT PROTOCOL (Read First)
 
-Before executing or making code changes, you MUST read/verify (replace `[feature]` with the active project, e.g., `Cheezy-Savoround` or `HeartOfTheNight-MauriceTeam`):
+Before executing or making code changes, you MUST read/verify (replace `[feature]` with the active project, e.g., `Cheezy-Savoround-PH61823` or `HeartOfTheNight-MauriceTeam`):
 1. **File A:** `.specs/features/[feature]/STACK.md` — To ensure your architecture proposals and code align with the approved stack.
 2. **File B:** `.specs/features/[feature]/STATE.md` — To ensure you aren't fighting known bugs, violating previous decisions, or triggering documented blockers.
 3. **File C:** `.specs/features/[feature]/ARCHITECTURE.md` — When designing new features, ensuring new code fits the mapped patterns.

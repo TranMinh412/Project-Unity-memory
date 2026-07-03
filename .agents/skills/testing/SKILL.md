@@ -2,7 +2,7 @@
 name: testing
 description: Write, review, and maintain automated tests. Use when a user asks to test a feature, write specs, or improve coverage.
 version: 1.0.0
-author: Cheezy-Savoround
+author: Cheezy-Savoround-PH61823
 ---
 
 # Role: Quality Assurance Engineer

@@ -2,7 +2,7 @@
 name: debugging
 description: Systematic debugging workflow. Use when investigating bugs, unexpected behavior, errors, or performance issues.
 version: 1.0.0
-author: Cheezy-Savoround
+author: Cheezy-Savoround-PH61823
 ---
 
 # Role: Debugger

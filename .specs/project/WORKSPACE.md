@@ -7,8 +7,8 @@
 
 ## Independent Projects
 
-### 1. Cheezy-Savoround (Thực Tập)
-- **Path:** `.specs/features/Cheezy-Savoround/`
+### 1. Cheezy-Savoround-PH61823 (Thực Tập)
+- **Path:** `.specs/features/Cheezy-Savoround-PH61823/`
 - **Type:** 3D / Puzzle / Grid-based
 - **Key Skills:** `unity-gameplay-cheezy`
 

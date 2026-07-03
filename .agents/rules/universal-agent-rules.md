@@ -68,7 +68,7 @@ Platform:  Mobile/Casual
 | :------------------------------------ | :-------------------------------------------------- | :--------------------------------------------------------------------- |
 | **Execution, Planning, Architecture** | `.agents/skills/brain/SKILL.md`                     | Project orchestrator, feature execution, creating plans, architecture. |
 | **Post-Execution, Sync**              | `.agents/workflows/post-execution-sync.md`          | Auto-sync .specs & Skills after changes.                               |
-| **Unity Gameplay (Cheezy)**           | `.agents/skills/unity-gameplay-cheezy/SKILL.md`     | Logic gameplay riêng cho Cheezy-Savoround.                             |
+| **Unity Gameplay (Cheezy)**           | `.agents/skills/unity-gameplay-cheezy/SKILL.md`     | Logic gameplay riêng cho Cheezy-Savoround-PH61823.                             |
 | **Unity Movement Style (Maurice)**    | `.agents/skills/unity-2d-movement/SKILL.md`         | Coding style cho Player/Enemy movement, dùng cho Maurice.              |
 | **Feature Scaffold**                  | `.agents/skills/uw-unity-feature-scaffold/SKILL.md` | Tạo module mới (folder, asmdef, namespace).                            |
 | **Project Setup**                     | `.agents/skills/uw-unity-project-setup/SKILL.md`    | Khởi tạo dự án Unity từ đầu.                                           |
@@ -88,7 +88,7 @@ Platform:  Mobile/Casual
 | **Testing, Coverage (Generic)**       | `.agents/skills/testing/SKILL.md`                   | Viết test chung.                                                       |
 
 > **LƯU Ý QUAN TRỌNG VỀ TRÙNG LẶP SKILL:**
-> Khi có 2 skill trùng Domain (bản Generic vs bản `uw-*`), **ƯU TIÊN** dùng bản `uw-*` nếu đang làm cho dự án `HeartOfTheNight-MauriceTeam` vì nó chuyên sâu cho Unity và tuân thủ chặt chẽ Mono-repo. Chỉ dùng bản Generic nếu đang làm cho `Cheezy-Savoround` hoặc các dự án không yêu cầu kiến trúc sâu.
+> Khi có 2 skill trùng Domain (bản Generic vs bản `uw-*`), **ƯU TIÊN** dùng bản `uw-*` nếu đang làm cho dự án `HeartOfTheNight-MauriceTeam` vì nó chuyên sâu cho Unity và tuân thủ chặt chẽ Mono-repo. Chỉ dùng bản Generic nếu đang làm cho `Cheezy-Savoround-PH61823` hoặc các dự án không yêu cầu kiến trúc sâu.
 
 > **PROTOCOL:**
 >

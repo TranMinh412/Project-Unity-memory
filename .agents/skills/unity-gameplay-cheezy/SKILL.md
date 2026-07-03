@@ -1,8 +1,8 @@
 ---
 name: unity-gameplay-cheezy
-description: Áp dụng khi lập trình logic Gameplay cho Unity (Cheezy-Savoround). Chứa luật về FSM, Event System, Data-Driven và Conventions.
+description: Áp dụng khi lập trình logic Gameplay cho Unity (Cheezy-Savoround-PH61823). Chứa luật về FSM, Event System, Data-Driven và Conventions.
 version: 1.0.0
-author: Cheezy-Savoround
+author: Cheezy-Savoround-PH61823
 ---
 
 # Role: Unity Gameplay Engineer
@@ -16,7 +16,7 @@ author: Cheezy-Savoround
 Trước khi viết code, BẮT BUỘC phải đọc/kiểm tra:
 
 1.  **File `Readme.md`**: Nắm rõ System Flow (Luồng chạy chính) của game.
-2.  **File `.specs/features/Cheezy-Savoround/ARCHITECTURE.md` (nếu có)**: Kiểm tra các quyết định kiến trúc đã chốt.
+2.  **File `.specs/features/Cheezy-Savoround-PH61823/ARCHITECTURE.md` (nếu có)**: Kiểm tra các quyết định kiến trúc đã chốt.
 
 ---
 
@@ -56,6 +56,6 @@ Khi triển khai một tính năng Gameplay mới:
 ### Thư mục quan trọng
 | Thư mục | Mục đích |
 |---------|---------|
-| `Cheezy-Savoround-PH61823/Assets/Scripts/Core/` | Chứa Game Manager, FSM, Event System cốt lõi. |
-| `Cheezy-Savoround-PH61823/Assets/Scripts/Data/` | Chứa các class định dạng dữ liệu, ScriptableObject. |
-| `Cheezy-Savoround-PH61823/Assets/Scripts/Gameplay/` | Logic điều khiển đĩa, bàn cờ, thao tác kéo thả. |
+| `Cheezy-Savoround-PH61823-PH61823/Assets/Scripts/Core/` | Chứa Game Manager, FSM, Event System cốt lõi. |
+| `Cheezy-Savoround-PH61823-PH61823/Assets/Scripts/Data/` | Chứa các class định dạng dữ liệu, ScriptableObject. |
+| `Cheezy-Savoround-PH61823-PH61823/Assets/Scripts/Gameplay/` | Logic điều khiển đĩa, bàn cờ, thao tác kéo thả. |
